@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" dir="ltr">
+<head>
+    <title>お問い合わせ｜ND&amp;I</title>
+    <link href="https://www.n-di.co.jp/css/import.css" rel="stylesheet" type="text/css" media="screen,print" />
+    <link href="https://www.n-di.co.jp/css/module/form2.css" rel="stylesheet" type="text/css" media="screen,print" />
+    <link rel="contents" href="/" title="ホーム" />
+    <script type="text/javascript" src="https://www.n-di.co.jp/js/lib/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="./validate.js"></script>
+    <style>
+    .error, .error02, .error03 {
+        display: none;
+    }
+    </style>
+    <script>
+        $(function(){
+            $(".required").required();//<input type="text">の入力必須
+            $(".checkboxRq").requiredCkBx();//<input type="checkbox">の選択必須
+            $(".mail").mailCk();//メールアドレス入力内容チェック
+            $(".mailRe").mailCkRe();//メールアドレス入力確認チェック
+            $(".tell").tellCk();//電話番号入力内容チェック
+            $(".requiredMulti").requiredMulti();//input 複数入力必須
+        });
+    </script>
+</head>
+
+<body id="form">
+    <div id="primary">
+        <form id="formContent">
+            <table class="formTable">
+                <tr>
+                    <th>
+                        <span class="must">お問い合わせ内容</span>
+                    </th>
+                    <td>
+                            <ul id="contactChoice" class="checkboxRq">
+                                <li>
+                                    <input type="checkbox" name="quote" id="quote" value="1" />
+                                    <label for="quote">お見積り希望</label>
+                                </li>
+
+                                <li>
+                                    <input type="checkbox" name="meeting" id="meeting" value="1" />
+                                    <label for="meeting">打ち合わせ希望</label>
+                                </li>
+
+                                <li>
+                                    <input type="checkbox" name="other" id="other" value="1" />
+                                    <label for="other">その他ご相談</label>
+                                </li>
+                            </ul>
+                        <p class="content">
+                            <textarea name="subject" id="subject" cols="43" rows="10"></textarea>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>会社名</th>
+                    <td>
+                        <input name="company" type="text" class="sizeM" id="company" value="" size="50" maxlength="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="must">ご担当者名</span>
+                    </th>
+                    <td>
+                        <input name="name" type="text" class="required sizeM" id="name" value="" size="50" maxlength="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <span class="must">メールアドレス</span>
+                    </th>
+                    <td>
+                        <input name="email" type="text" class="required mail sizeM" id="email" value="" size="50" maxlength="100" />
+                        <span class="notes">確認のため再度メールアドレスをご入力ください。</span>
+                        <input name="email_check" type="text" class="mailRe" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>電話番号</th>
+                    <td>
+                        <input name="phone" type="text" class="tell sizeM" id="phone" value="" size="50" maxlength="20" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>URL</th>
+                    <td>
+                        <textarea name="site" id="site" cols="43" rows="5" class="url"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>ご希望の連絡方法</th>
+                    <td>
+                        <ul class="checkboxRq">
+                            <li>
+                                <input type="checkbox" name="contactmail" id="contactmail" value="1" />
+                                <label for="contactmail">メール</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="contacttell" id="contacttell" value="1" />
+                                <label for="contacttell">電話</label>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th>複数項目入力必須</th>
+                    <td class="requiredMulti">
+                        姓<input name="name" type="text" />　名<input name="name" type="text" />
+                    </td>
+                </tr>
+            </table>
+
+            <ul class="formButton">
+                <li>
+                    <a href="#">
+                        <img src="https://www.n-di.co.jp/img/form/btn_confirm.gif" alt="確認画面へ進む" title="確認画面へ進む" class="fadeOver" />
+                    </a>
+                </li>
+            </ul>
+            <input name="action" type="hidden" id="action" value="check_entry" />
+        </form>
+        <!-- / id primary -->
+    </div>
+
+</body>
+
+</html>
